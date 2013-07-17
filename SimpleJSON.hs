@@ -18,6 +18,9 @@ data JValue = JString String
 	    | JArray [JValue]
 	      deriving (Eq, Ord, Show)
 
+getString (JString s) = Just s
+getString _ 	      = Nothing
+
 getInt (JNumber n) = Just (truncate n)
 getInt _           = Nothing
 
